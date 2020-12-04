@@ -1,0 +1,31 @@
+a {
+  text-decoration: none;
+  font-size: medium;
+  color: white;
+}
+
+a:hover,
+a:active {
+  color: lightgray;
+}
+
+.navigation-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#menu-button {
+  color: white;
+}
+
+#logo {
+  width: 80px;
+  margin-top: 30px;
+}
+
+@media (max-width: 959px) {
+  mat-toolbar {
+    border-radius: 0px;
+  }
+}

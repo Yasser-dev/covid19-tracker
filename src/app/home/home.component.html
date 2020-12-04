@@ -1,0 +1,65 @@
+<div
+  class="container"
+  fxLayout="column wrap"
+  fxLayoutGap="32px"
+  fxLayoutAlign="center"
+>
+  <mat-card
+    ngStyle.gt-xs="padding:2em; margin:2em;"
+    ngStyle.xs="padding:1em; margin:1em;"
+  >
+    <mat-card-title ngStyle.lt-md="font-size:4.5vw"
+      >Coronavirus (Covid-19)</mat-card-title
+    >
+    <mat-card-subtitle
+      ngStyle.gt-md="font-size:1.3vw;  padding:0 2em 0 2em;"
+      ngStyle.md="font-size:1.5vw;  padding:0 2em 0 2em;"
+      ngStyle.lt-md="font-size:2vw;;"
+      ngStyle.lt-sm="font-size:4vw;;"
+      >Coronavirus disease (COVID-19) is an infectious disease caused by a newly
+      discovered coronavirus. Most people who fall sick with COVID-19 will
+      experience mild to moderate symptoms and recover without special
+      treatment.
+    </mat-card-subtitle>
+  </mat-card>
+  <div
+    fxLayout="row wrap"
+    fxLayout.lt-md="column wrap"
+    fxLayoutGap="32px"
+    fxLayoutAlign="center"
+  >
+    <mat-card>
+      <mat-card-title ngStyle.lt-sm="font-size:4.5vw">CONFIRMED</mat-card-title>
+      <mat-card-subtitle
+        ngStyle.lt-sm="font-size:6vw"
+        [countUp]="data.confirmed"
+        >{{ data.confirmed | number: "1.0":"en-US" }}</mat-card-subtitle
+      >
+    </mat-card>
+    <mat-card>
+      <mat-card-title ngStyle.lt-sm="font-size:4.5vw">DEATHS</mat-card-title>
+      <mat-card-subtitle
+        ngStyle.lt-sm="font-size:6vw"
+        [countUp]="data.deaths"
+        >{{ data.deaths | number: "1.0":"en-US" }}</mat-card-subtitle
+      >
+    </mat-card>
+    <mat-card>
+      <mat-card-title ngStyle.lt-sm="font-size:4.5vw">RECOVERED</mat-card-title>
+      <mat-card-subtitle
+        ngStyle.lt-sm="font-size:6vw"
+        [countUp]="data.recovered"
+        >{{ data.recovered | number: "1.0":"en-US" }}</mat-card-subtitle
+      >
+    </mat-card>
+  </div>
+  <div id="chartdiv">
+    <canvas
+      baseChart
+      [chartType]="lineChartType"
+      [datasets]="lineChartData"
+      [labels]="lineChartLabels"
+    >
+    </canvas>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<div
+  class="container"
+  fxLayout="column wrap"
+  fxLayoutGap="32px"
+  fxFlexAlign="center"
+>
+  <mat-card
+    id="country-card"
+    ngStyle.gt-xs="padding:2em; margin:2em;"
+    ngStyle.xs="padding:1em; margin:1em;"
+    *ngIf="country"
+  >
+    <mat-card-title ngStyle.lt-md="font-size:4.5vw"
+      >Showing Stats for:</mat-card-title
+    >
+    <mat-card-subtitle>{{ country }}</mat-card-subtitle>
+  </mat-card>
+  <img
+    fxLayoutAlign="center"
+    *ngIf="countryiso2"
+    [src]="'https://flagcdn.com/' + countryiso2 + '.svg'"
+  />
+  <div fxLayout="column wrap" fxLayoutGap="32px" fxFlexAlign="center">
+    <mat-form-field appearance="fill" style="width: 80vw; margin: auto">
+      <mat-label>Country</mat-label>
+      <mat-select (selectionChange)="countryChanged($event.value)">
+        <mat-option *ngFor="let country of countries" [value]="country">{{
+          country[0]
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div
+    fxLayout="row wrap"
+    fxLayout.lt-md="column wrap"
+    fxLayoutGap="32px"
+    fxLayoutAlign="center"
+  >
+    <mat-card>
+      <mat-card-title ngStyle.lt-sm="font-size:4.5vw">CONFIRMED</mat-card-title>
+      <mat-card-subtitle
+        ngStyle.lt-sm="font-size:6vw"
+        [countUp]="data.confirmed"
+        >{{ data.confirmed | number: "1.0":"en-US" }}</mat-card-subtitle
+      >
+    </mat-card>
+    <mat-card>
+      <mat-card-title ngStyle.lt-sm="font-size:4.5vw">DEATHS</mat-card-title>
+      <mat-card-subtitle
+        ngStyle.lt-sm="font-size:6vw"
+        [countUp]="data.deaths"
+        >{{ data.deaths | number: "1.0":"en-US" }}</mat-card-subtitle
+      >
+    </mat-card>
+    <mat-card>
+      <mat-card-title ngStyle.lt-sm="font-size:4.5vw">RECOVERED</mat-card-title>
+      <mat-card-subtitle
+        ngStyle.lt-sm="font-size:6vw"
+        [countUp]="data.recovered"
+        >{{ data.recovered | number: "1.0":"en-US" }}</mat-card-subtitle
+      >
+    </mat-card>
+  </div>
+  <div id="chartdiv">
+    <canvas
+      baseChart
+      [chartType]="barChartType"
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+    >
+    </canvas>
+  </div>
+</div>

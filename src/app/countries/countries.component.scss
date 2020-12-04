@@ -1,0 +1,43 @@
+.container {
+  padding: 3em;
+}
+mat-card {
+  padding: 2rem;
+
+  mat-card-title {
+    font-weight: bold;
+    font-size: 2vw;
+
+    text-align: center;
+  }
+  mat-card-subtitle {
+    text-align: center;
+    margin: 1em;
+    font-size: 3vw;
+  }
+  mat-card-content {
+    text-align: center;
+  }
+}
+img {
+  width: 10%;
+  margin: auto;
+  border: 0.1em solid grey;
+}
+#country-card {
+  mat-card-title {
+    font-weight: bold;
+    font-size: 1vw;
+
+    text-align: center;
+  }
+  mat-card-subtitle {
+    text-align: center;
+    margin: 0;
+    font-size: 2vw;
+  }
+}
+#chartdiv {
+  width: 50%;
+  margin: auto;
+}
